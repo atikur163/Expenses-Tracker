@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Expense - Smart Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <i data-lucide="wallet"></i>
+        <span>Apex Expense</span>
+      </div>
+      <button id="themeToggle" class="btn-icon">
+        <i data-lucide="moon" id="themeIcon"></i>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Stats Dashboard -->
+      <section class="stats-grid">
+        <div class="card bg-blue">
+          <h3>মোট আয় (Income)</h3>
+          <p id="totalIncome">$0.00</p>
+        </div>
+        <div class="card bg-red">
+          <h3>মোট খরচ (Expense)</h3>
+          <p id="totalExpense">$0.00</p>
+        </div>
+        <div class="card bg-green">
+          <h3>অবশিষ্ট ব্যালেন্স (Net)</h3>
+          <p id="netBalance">$0.00</p>
+        </div>
+      </section>
+
+      <!-- Expense Form & List -->
+      <section class="content-grid">
+        <!-- Add Transaction Form -->
+        <div class="card form-card">
+          <h2>নতুন লেনদেন যোগ করুন</h2>
+          <form id="transactionForm">
+            <div class="form-group">
+              <label for="title">বিবরণ</label>
+              <input type="text" id="title" placeholder="যেমন: বাজারের খরচ" required>
+            </div>
+            <div class="form-group">
+              <label for="amount">পরিমাণ ($)</label>
+              <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label for="type">ধরন</label>
+              <select id="type">
+                <option value="expense">খরচ (Expense)</option>
+                <option value="income">আয় (Income)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="category">ক্যাটাগরি</label>
+              <select id="category">
+                <option value="Food">খাবার (Food)</option>
+                <option value="Shopping">শপিং (Shopping)</option>
+                <option value="Bills">বিল (Bills)</option>
+                <option value="Salary">বেতন (Salary)</option>
+                <option value="Other">অন্যান্য (Other)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary">যোগ করুন</button>
+          </form>
+        </div>
+
+        <!-- Transactions History -->
+        <div class="card list-card">
+          <h2>সাম্প্রতিক লেনদেন</h2>
+          <ul id="transactionList" class="transaction-list">
+            <!-- Dynamic Items Here -->
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
